@@ -1,0 +1,182 @@
+.site {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex-shrink: 0;
+}
+
+// Auto Grids
+.services {
+  &-grid {
+    display: grid;
+    grid-gap: 1vmin;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+.works {
+  &-grid {
+    display: grid;
+    grid-gap: 4vmin;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+// Tablet
+@include tablet {
+  .services {
+    &-grid {
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+  }
+
+  .landing {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(3, min-content);
+    // grid-template-areas:
+    //   "b b b b b s s s"
+    //   "w w w t t t t t"
+    //   "w w w a a a a a"
+    //   "c c c c c c c c";
+
+    grid-template-areas:
+      "b b b b b s s s"
+      "w w w a a a a a"
+      "w w w c c c c c";
+
+    grid-gap: 5vmin;
+
+    &-services {
+      grid-area: s;
+    }
+
+    &-benefits {
+      grid-area: b;
+    }
+
+    &-testimonials {
+      grid-area: t;
+    }
+
+    &-about {
+      grid-area: a;
+    }
+
+    &-works {
+      grid-area: w;
+    }
+
+    &-contact {
+      grid-area: c;
+    }
+  }
+
+  .about {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, min-content);
+    grid-template-areas:
+      "i i d"
+      "m p p"
+      "s s o"
+      "c co co";
+    grid-gap: 5vmin;
+
+    &-image {
+      grid-area: i;
+    }
+
+    &-instructions {
+      grid-area: d;
+    }
+
+    &-mobile {
+      grid-area: m;
+    }
+
+    &-purpose {
+      grid-area: p;
+    }
+
+    &-security {
+      grid-area: s;
+    }
+
+    &-optimize {
+      grid-area: o;
+    }
+
+    &-care {
+      grid-area: c;
+    }
+
+    &-contact {
+      grid-area: co;
+    }
+  }
+
+  .benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, min-content);
+    grid-template-areas:
+      "i i i "
+      "d q c"
+      "co co co";
+    grid-gap: 5vmin;
+
+    &-intro {
+      grid-area: i;
+    }
+
+    &-demand {
+      grid-area: d;
+    }
+
+    &-questions {
+      grid-area: q;
+    }
+
+    &-competitors {
+      grid-area: c;
+    }
+
+    &-contact {
+      grid-area: co;
+    }
+  }
+
+  .services {
+    display: grid;
+    grid-gap: 5vmin;
+  }
+
+  .works {
+    display: grid;
+    grid-gap: 5vmin;
+
+    &-grid {
+      grid-auto-rows: 500px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+
+  .footer {
+    height: 5vh;
+  }
+}
+
+@include desktop {
+  .works-grid {
+    grid-auto-rows: 600px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+}
